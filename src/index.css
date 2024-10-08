@@ -1,0 +1,90 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --discord-blurple: #7289da;
+  --discord-green: #43b581;
+  --discord-yellow: #faa61a;
+  --discord-red: #f04747;
+}
+
+body {
+  @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+.status-dot {
+  @apply w-3 h-3 rounded-full absolute bottom-0 right-0 border-2 border-white dark:border-gray-800;
+}
+
+.status-dot.online {
+  @apply bg-green-500;
+}
+
+.status-dot.idle {
+  @apply bg-yellow-500;
+}
+
+.status-dot.dnd {
+  @apply bg-red-500;
+}
+
+.status-dot.invisible {
+  @apply bg-gray-500;
+}
+
+/* Custom animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Custom styles */
+.hover-trigger .hover-target {
+  @apply opacity-0 transition-opacity duration-200;
+}
+
+.hover-trigger:hover .hover-target {
+  @apply opacity-100;
+}
+
+.message-transition {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.message-transition:hover {
+  @apply transform scale-102;
+}
